@@ -1,0 +1,12 @@
+{
+  "name": "drf-api",
+  "version": "1.0.0",
+  "description": "<<<<<<< HEAD ======= # Moments - API ## Project description Moments is a social media platform. It has been designed for its users to share their life's moments. The application consists of the React app and an API. Welcome to the Django Rest Framework API project section.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
