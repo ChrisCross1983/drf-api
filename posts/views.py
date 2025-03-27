@@ -62,3 +62,11 @@ class PostFeed(generics.ListAPIView):
         likes_count=Count('likes', distinct=True),
         comments_count=Count('comment', distinct=True)
     ).order_by('-created_at')
+
+class AllPosts(generics.ListAPIView):
+    """
+    Showing all posts without auth, only for test case
+    """
+    queryset = Post.objects.all().order_by('-created_at')
+    serializer_class = PostSerializer
+    permission_classes = [permissions.AllowAny]
