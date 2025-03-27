@@ -6,5 +6,4 @@ urlpatterns = [
     path('<int:pk>/', views.PostDetail.as_view()),
     path('feed/', views.PostFeed.as_view()),
     path('all/', views.AllPosts.as_view()),
-    path('test-all-posts/', views.AllPosts.as_view()),
 ]
