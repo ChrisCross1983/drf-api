@@ -1,5 +1,7 @@
 from django.db.models import Count
 from rest_framework.generics import ListAPIView
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
@@ -64,14 +66,9 @@ class PostFeed(generics.ListAPIView):
         comments_count=Count('comment', distinct=True)
     ).order_by('-created_at')
 
-class AllPosts(ListAPIView):
-    """
-    Showing all posts without auth, only for test case (updated)
-    """
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
+class AllPosts(APIView):
     permission_classes = [AllowAny]
-    
-    def get(self, request, *args, **kwargs):
-        print(">>> AllPosts View HIT")
-        return super().get(request, *args, **kwargs)
+
+    def get(self, request, format=None):
+        print(">>> AllPosts reached")
+        return Response({"message": "All posts endpoint works!"})
