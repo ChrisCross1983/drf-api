@@ -1,3 +1,5 @@
+raise Exception("LOADED: posts/urls.py")
+
 from django.urls import path
 from .views import PostList, PostDetail, PostFeed, AllPosts
 
