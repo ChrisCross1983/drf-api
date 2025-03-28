@@ -71,3 +71,7 @@ class AllPosts(ListAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [AllowAny]
+    
+    def get(self, request, *args, **kwargs):
+        print(">>> AllPosts View HIT")
+        return super().get(request, *args, **kwargs)

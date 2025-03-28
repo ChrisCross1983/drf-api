@@ -125,7 +125,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'drf_api.urls'
+ROOT_URLCONF = 'catsitting.urls'
 
 TEMPLATES = [
     {
