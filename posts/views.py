@@ -71,4 +71,7 @@ class AllPosts(APIView):
 
     def get(self, request, format=None):
         print(">>> AllPosts reached")
+        print(f"Headers: {request.headers}")
+        print(f"Query params: {request.query_params}")
+        print(f"Body: {request.body}")
         return Response({"message": "All posts endpoint works!"})
