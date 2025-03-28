@@ -1,10 +1,11 @@
 from django.db.models import Count
+from rest_framework.generics import ListAPIView
+from rest_framework.permissions import AllowAny
 from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from drf_api.permissions import IsOwnerOrReadOnly
 from .models import Post
 from .serializers import PostSerializer
-
 
 class PostList(generics.ListCreateAPIView):
     """
@@ -63,10 +64,10 @@ class PostFeed(generics.ListAPIView):
         comments_count=Count('comment', distinct=True)
     ).order_by('-created_at')
 
-class AllPosts(generics.ListAPIView):
+class AllPosts(ListAPIView):
     """
     Showing all posts without auth, only for test case (updated)
     """
-    queryset = Post.objects.all().order_by('-created_at')
+    queryset = Post.objects.all()
     serializer_class = PostSerializer
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [AllowAny]
