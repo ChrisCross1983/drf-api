@@ -56,6 +56,7 @@ REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'drf_api.serializers.CurrentUserSerializer'
 }
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -64,6 +65,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
+
+if 'HEROKU' in os.environ:
+    INSTALLED_APPS += ['django_extensions']
 
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
@@ -128,7 +132,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'catsitting.urls'
+ROOT_URLCONF = 'drf_api.urls'
 
 TEMPLATES = [
     {

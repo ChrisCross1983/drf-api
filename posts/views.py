@@ -67,11 +67,5 @@ class PostFeed(generics.ListAPIView):
     ).order_by('-created_at')
 
 class AllPosts(APIView):
-    permission_classes = [AllowAny]
-
-    def get(self, request, format=None):
-        print(">>> AllPosts reached")
-        print(f"Headers: {request.headers}")
-        print(f"Query params: {request.query_params}")
-        print(f"Body: {request.body}")
+    def get(self, request):
         return Response({"message": "All posts endpoint works!"})
